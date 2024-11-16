@@ -1,0 +1,120 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+}
+
+/* Speedometer animation */
+.speedometer {
+  margin: 30px 0;
+  position: relative;
+}
+
+.dial {
+  width: 200px;
+  height: 200px;
+  border: 10px solid #333;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+#ultrasoundValue {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  animation: pulse 1s infinite;
+}
+
+/* Fan SVG Rotation */
+.motor {
+  margin: 30px 0;
+}
+
+.fan {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  position: relative;
+  animation: rotateFan 3s linear infinite;
+}
+
+@keyframes rotateFan {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.fan.stopped {
+  animation: none;
+}
+
+/* Button styles */
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+button:active {
+  background-color: #388e3c;
+}
+
+/* Flexbox layout for alignment */
+.sensor, .motor {
+  margin-bottom: 40px;
+}
+
+/* Pulsing effect for ultrasonic value */
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    color: #333;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    color: #ff5722;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    color: #333;
+  }
+}
